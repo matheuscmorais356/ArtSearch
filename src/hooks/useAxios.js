@@ -46,7 +46,6 @@ export const useAxios = () => {
   // checkmusic e albumTracks
   const post = async (url, data) => {
     try {
-      console.log(process.env.REACT_APP_LINK_API)
       const response = await axiosInstance.post(url, data);
 
       if(url === "/checkmusic") {

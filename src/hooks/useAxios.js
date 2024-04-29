@@ -46,7 +46,13 @@ export const useAxios = () => {
   // checkmusic e albumTracks
   const post = async (url, data) => {
     try {
-      const response = await axiosInstance.post(`/api/v1${url}`, data);
+
+      // const response = await axiosInstance.post(`/api/v1${url}`, data);
+      const response = await axios.post(`${process.env.REACT_APP_LINK_API}/api/v1${url}`, data, {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
 
       if(url === "/checkmusic") {
         response.data.artist.follows = formatNumbers(parseInt(response.data.artist.follows), "follows");

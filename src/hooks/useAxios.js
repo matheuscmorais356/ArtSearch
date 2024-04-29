@@ -47,7 +47,7 @@ export const useAxios = () => {
   const post = async (url, data) => {
     try {
       const response = await axiosInstance.post(url, data);
-
+            
       if(url === "/checkmusic") {
         response.data.artist.follows = formatNumbers(parseInt(response.data.artist.follows), "follows");
       }  else if(url === "/albumTracks") {

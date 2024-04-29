@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const createAxiosInstance = () => {
   const instance = axios.create({
-    baseURL: process.env.REACT_APP_LINK_API,
+    baseURL: process.env.REACT_APP_LINK_API + "/api/v1",
     headers: {
       "Content-Type": "application/json"
     }
@@ -46,13 +46,8 @@ export const useAxios = () => {
   // checkmusic e albumTracks
   const post = async (url, data) => {
     try {
-
-      // const response = await axiosInstance.post(`/api/v1${url}`, data);
-      const response = await axios.post(`${process.env.REACT_APP_LINK_API}/api/v1${url}`, data, {
-        headers: {
-          "Content-Type": "application/json"
-        }
-      });
+      console.log(process.env.REACT_APP_LINK_API)
+      const response = await axiosInstance.post(url, data);
 
       if(url === "/checkmusic") {
         response.data.artist.follows = formatNumbers(parseInt(response.data.artist.follows), "follows");

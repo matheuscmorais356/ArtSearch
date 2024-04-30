@@ -1,7 +1,7 @@
 import "./App.css";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+   
 // Pages
 import Home from "./pages/Home/Home";
 import ArtistInfo from "./pages/ArtistInfo/ArtistInfo";
